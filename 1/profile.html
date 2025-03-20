@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - HeavyLoad Route Optimizer</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="landing.html" class="logo">
+                <i class="fas fa-truck"></i>
+                <span>HeavyLoad</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="landing.html">Home</a></li>
+                <li><a href="landing.html#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="cta-button active">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="profile-info">
+                    <h1>Driver Profile</h1>
+                    <p class="profile-status"><i class="fas fa-check-circle"></i> Verified Driver</p>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <!-- Personal Information -->
+                <div class="profile-card">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Full Name</label>
+                            <input type="text" value="John Doe" placeholder="Enter your name">
+                        </div>
+                        <div class="info-item">
+                            <label>Driver ID</label>
+                            <input type="text" value="DRV-123456" readonly>
+                        </div>
+                        <div class="info-item">
+                            <label>Contact Number</label>
+                            <input type="tel" value="+1 234 567 8900" placeholder="Enter contact number">
+                        </div>
+                        <div class="info-item">
+                            <label>Email</label>
+                            <input type="email" value="john.doe@example.com" placeholder="Enter email">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Information -->
+                <div class="profile-card">
+                    <h2><i class="fas fa-truck"></i> Vehicle Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Vehicle Type</label>
+                            <select>
+                                <option value="semi">Semi Truck</option>
+                                <option value="box">Box Truck</option>
+                                <option value="tanker">Tanker Truck</option>
+                                <option value="flatbed">Flatbed Truck</option>
+                            </select>
+                        </div>
+                        <div class="info-item">
+                            <label>Vehicle Number</label>
+                            <input type="text" value="TRK-789012" placeholder="Enter vehicle number">
+                        </div>
+                        <div class="info-item">
+                            <label>Vehicle Height (ft)</label>
+                            <input type="number" value="13.5" min="0" step="0.1" placeholder="Enter height">
+                        </div>
+                        <div class="info-item">
+                            <label>Vehicle Weight (tons)</label>
+                            <input type="number" value="40" min="0" step="0.1" placeholder="Enter weight">
+                        </div>
+                        <div class="info-item">
+                            <label>Length (ft)</label>
+                            <input type="number" value="53" min="0" step="0.1" placeholder="Enter length">
+                        </div>
+                        <div class="info-item">
+                            <label>Width (ft)</label>
+                            <input type="number" value="8.5" min="0" step="0.1" placeholder="Enter width">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- License & Certifications -->
+                <div class="profile-card">
+                    <h2><i class="fas fa-certificate"></i> License & Certifications</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>License Number</label>
+                            <input type="text" value="CDL-345678" placeholder="Enter license number">
+                        </div>
+                        <div class="info-item">
+                            <label>License Expiry</label>
+                            <input type="date" value="2025-12-31">
+                        </div>
+                        <div class="info-item">
+                            <label>Hazmat Certified</label>
+                            <select>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <button class="save-button">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 

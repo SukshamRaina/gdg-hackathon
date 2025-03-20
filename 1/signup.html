@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .forms-container {
+            position: relative;
+            width: 200%;
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+        }
+        
+        .signin-signup {
+            width: 50%;
+            padding: 40px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .input-field {
+            width: 100%;
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .input-field input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            outline: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        
+        .input-field input:focus {
+            background-color: #e0e0e0;
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #6c63ff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #5046e5;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .social-icon {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .toggle-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: #6c63ff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .toggle-btn:hover {
+            text-decoration: underline;
+        }
+        
+        /* Animation classes */
+        .slide-left {
+            transform: translateX(0);
+        }
+        
+        .slide-right {
+            transform: translateX(-50%);
+        }
+        
+        .form-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .form-visible {
+            opacity: 1;
+            pointer-events: all;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container slide-left" id="forms-container">
+            <div class="signin-signup form-visible" id="login-form">
+                <form action="#">
+                    <h2>Login</h2>
+                    <div class="input-field">
+                        <input type="text" placeholder="Email" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                    <div class="social-icons">
+                        <div class="social-icon">
+                            <i>f</i>
+                        </div>
+                        <div class="social-icon">
+                            <i>g</i>
+                        </div>
+                        <div class="social-icon">
+                            <i>in</i>
+                        </div>
+                    </div>
+                    <div class="toggle-container">
+                        <p>Don't have an account? <button type="button" class="toggle-btn" id="signup-toggle">Sign up</button></p>
+                    </div>
+                </form>
+            </div>
+            <div class="signin-signup form-hidden" id="signup-form">
+                <form action="#">
+                    <h2>Sign Up</h2>
+                    <div class="input-field">
+                        <input type="text" placeholder="Username" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn">Sign Up</button>
+                    <div class="social-icons">
+                        <div class="social-icon">
+                            <i>f</i>
+                        </div>
+                        <div class="social-icon">
+                            <i>g</i>
+                        </div>
+                        <div class="social-icon">
+                            <i>in</i>
+                        </div>
+                    </div>
+                    <div class="toggle-container">
+                        <p>Already have an account? <button type="button" class="toggle-btn" id="login-toggle">Login</button></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const formsContainer = document.getElementById('forms-container');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const signupToggle = document.getElementById('signup-toggle');
+            const loginToggle = document.getElementById('login-toggle');
+            
+            // Switch to signup form
+            signupToggle.addEventListener('click', function() {
+                // Slide animation
+                formsContainer.classList.remove('slide-left');
+                formsContainer.classList.add('slide-right');
+                
+                // Form visibility
+                setTimeout(() => {
+                    loginForm.classList.remove('form-visible');
+                    loginForm.classList.add('form-hidden');
+                    
+                    signupForm.classList.remove('form-hidden');
+                    signupForm.classList.add('form-visible');
+                }, 300);
+                
+                // Add entrance animation for form elements
+                animateFormElements(signupForm);
+            });
+            
+            // Switch to login form
+            loginToggle.addEventListener('click', function() {
+                // Slide animation
+                formsContainer.classList.remove('slide-right');
+                formsContainer.classList.add('slide-left');
+                
+                // Form visibility
+                setTimeout(() => {
+                    signupForm.classList.remove('form-visible');
+                    signupForm.classList.add('form-hidden');
+                    
+                    loginForm.classList.remove('form-hidden');
+                    loginForm.classList.add('form-visible');
+                }, 300);
+                
+                // Add entrance animation for form elements
+                animateFormElements(loginForm);
+            });
+            
+            // Function to animate form elements
+            function animateFormElements(form) {
+                const elements = form.querySelectorAll('input, button, .social-icon');
+                elements.forEach((element, index) => {
+                    // Reset animation
+                    element.style.animation = 'none';
+                    element.offsetHeight; // Trigger reflow
+                    
+                    // Apply animation with delay based on index
+                    element.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.1}s`;
+                });
+            }
+            
+            // Initial animation for login form
+            animateFormElements(loginForm);
+        });
+        
+        // Add keyframe animation for form elements
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
+
