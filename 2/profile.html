@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - HeavyLoad Route Optimizer</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Add these styles to your existing CSS or in the style tag */
+        body {
+            background-color: #f0f4f8;
+            padding: 20px;
+        }
+
+        .profile-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid #007bff;
+        }
+
+        .profile-card {
+            border: 1px solid #e1e8ed;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logout-btn {
+            background-color: #ff4757;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logout-btn:hover {
+            background-color: #ff6b81;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 71, 87, 0.2);
+        }
+
+        .logout-btn i {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="landing.html" class="logo">
+                <i class="fas fa-truck"></i>
+                <span>HeavyLoad</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="landing.html">Home</a></li>
+                <li><a href="landing.html#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="cta-button active">Profile</a></li>
+                <li><button class="logout-btn" onclick="handleLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="profile-info">
+                    <h1>Driver Profile</h1>
+                    <p class="profile-status"><i class="fas fa-check-circle"></i> Verified Driver</p>
+                    <p id="userInfo">Loading...</p>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <!-- Personal Information -->
+                <div class="profile-card">
+                    <h2><i class="fas fa-user"></i> Personal Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your full name">
+                        </div>
+                        <div class="info-item">
+                            <label>Driver ID</label>
+                            <input type="text" placeholder="DRV-XXXXXX" readonly>
+                        </div>
+                        <div class="info-item">
+                            <label>Contact Number</label>
+                            <input type="tel" placeholder="Enter your contact number">
+                        </div>
+                        <div class="info-item">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Information -->
+                <div class="profile-card">
+                    <h2><i class="fas fa-truck"></i> Vehicle Information</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Vehicle Type</label>
+                            <select>
+                                <option value="">Select vehicle type</option>
+                                <option value="semi">Semi Truck</option>
+                                <option value="box">Box Truck</option>
+                                <option value="tanker">Tanker Truck</option>
+                                <option value="flatbed">Flatbed Truck</option>
+                            </select>
+                        </div>
+                        <div class="info-item">
+                            <label>Vehicle Number</label>
+                            <input type="text" placeholder="Enter vehicle number">
+                        </div>
+                        <div class="info-item">
+                            <label>Vehicle Height (ft)</label>
+                            <input type="number" min="0" step="0.1" placeholder="Enter height">
+                        </div>
+                        <div class="info-item">
+                            <label>Vehicle Weight (tons)</label>
+                            <input type="number" min="0" step="0.1" placeholder="Enter weight">
+                        </div>
+                        <div class="info-item">
+                            <label>Length (ft)</label>
+                            <input type="number" min="0" step="0.1" placeholder="Enter length">
+                        </div>
+                        <div class="info-item">
+                            <label>Width (ft)</label>
+                            <input type="number" min="0" step="0.1" placeholder="Enter width">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- License & Certifications -->
+                <div class="profile-card">
+                    <h2><i class="fas fa-certificate"></i> License & Certifications</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>License Number</label>
+                            <input type="text" placeholder="Enter license number">
+                        </div>
+                        <div class="info-item">
+                            <label>License Expiry</label>
+                            <input type="date">
+                        </div>
+                        <div class="info-item">
+                            <label>Hazmat Certified</label>
+                            <select>
+                                <option value="">Select option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Save Button -->
+                <button class="save-button">
+                    <i class="fas fa-save"></i> Save Changes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Check if user is logged in
+        window.addEventListener('DOMContentLoaded', function() {
+            const userEmail = localStorage.getItem('userEmail');
+            const userName = localStorage.getItem('userName');
+            
+            if (!userEmail) {
+                // If no user is logged in, redirect to login page
+                window.location.href = 'signup.html';
+                return;
+            }
+
+            // Display user info
+            const userInfo = document.getElementById('userInfo');
+            userInfo.textContent = `Logged in as: ${userName || userEmail}`;
+        });
+
+        function handleLogout() {
+            // Clear user data
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userName');
+            // Redirect to login page
+            window.location.href = 'signup.html';
+        }
+    </script>
+</body>
+</html> 
